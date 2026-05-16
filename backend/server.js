@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
@@ -18,7 +20,7 @@ app.use("/api", requestRoutes)
 app.use("/api", authRoutes)
 
 // database connect
-mongoose.connect("mongodb://127.0.0.1:27017/bloodbank")
+mongoose.connect(process.env.MONGO_URL)
 
 .then(()=>{
 
